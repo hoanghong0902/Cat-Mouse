@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Rat = function(name, weight, speed){
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+            this.getName = function(){
+                return name;
+            }
+            this.setName = function(name){
+                return this.name = name;
+            }
+            this.getWeight = function(){
+                return weight;
+            }
+            this.setWeight = function(weight){
+                return this.weight = weight;
+            }
+            this.getSpeed = function(){
+                return speed;
+            }
+            this.setSpeed = function(speed){
+                return this.speed = speed;
+            }
+            this.getStatus = function(){
+                if (this.weight > 0){
+                    return true;
+                }
+                return false;
+            }
+            this.speak = function(){
+                return "Chit, chit";
+            }
+        }
+        let Cat = function(name, weight, speed){
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.getName = function(){
+                return name;
+            }
+            this.setName = function(name){
+                return this.name = name;
+            }
+            this.getWeight = function(){
+                return weight;
+            }
+            this.setWeight = function(weight){
+                return this.weight = weight;
+            }
+            this.getSpeed = function(){
+                return speed;
+            }
+            this.setSpeed = function(speed){
+                return this.speed = speed;
+            }
+            this.speak = function(){
+                return "Meow, meow";
+            }
+            this.catchMouse = function(rat){
+                if (this.speed > this.rat.speed){
+                    return true;
+                }
+                return false;
+            }
+            this.eatMouse = function(rat){
+                if(this.rat.getStatus() == true){
+                    this.weight += rat.weight;
+                    rat.weight = 0;
+                }
+            }
+            this.catConnecRat = function(rat){
+                return this.rat = rat;
+            }
+        }
+        let rat = new Rat("Mouse", 0.2, 1);
+        let cat = new Cat("Cat", 3, 2);
+        cat.catConnecRat(rat);
+        console.log(rat.getStatus());
+        console.log(cat.catchMouse(rat));
+        console.log(cat.speak());
+        console.log(rat.speak());
+        cat.eatMouse(rat);
+
+        console.log(rat.weight);
+        console.log(rat.getStatus());
+        console.log(cat.weight);
+    </script>
+</body>
+</html>
